@@ -2,8 +2,8 @@ package org.example;
 
 public class Article {
     private final int id;
-    private final String subject;
-    private final String content;
+    private String subject;
+    private String content;
 
     Article(int id, String subject, String content) {
         this.id = id;
@@ -19,7 +19,15 @@ public class Article {
         return this.subject;
     }
 
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
     public String getContent() {
         return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
