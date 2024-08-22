@@ -1,7 +1,7 @@
 package org.example.article;
 
 public class Article {
-    private final int id;
+    private int id;
     private String subject;
     private String content;
 

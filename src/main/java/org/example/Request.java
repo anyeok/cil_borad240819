@@ -1,12 +1,13 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Request {
     private String actionCode;
     private Map<String, String> params = new HashMap<>();
-    private int idx;
 
     public Request(String command) {
         String[] commandList = command.split("\\?", 2);
@@ -17,11 +18,17 @@ public class Request {
 
         String[] paramsList = commandList[1].split("&");
 
+        ArrayList<String> paramsId =  new ArrayList<>();
+
         for (String paramsRow : paramsList) {
-            String[] paramsStr = commandList[1].split("=", 2);
+            String[] paramsStr = paramsRow.split("=", 2);
             String key = paramsStr[0];
-            String value = paramsStr[1];
-            params.put(key, value);
+            if(paramsStr[1].startsWith("id=%")){
+                paramsId.add(paramsStr[1]);
+            }else{
+                String value = paramsStr[1];
+                params.put(key, value);
+            }
         }
 
     }
