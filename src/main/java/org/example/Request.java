@@ -23,14 +23,13 @@ public class Request {
         for (String paramsRow : paramsList) {
             String[] paramsStr = paramsRow.split("=", 2);
             String key = paramsStr[0];
-            if(paramsStr[1].startsWith("id=%")){
-                paramsId.add(paramsStr[1]);
+            if(paramsStr[1].startsWith("%&")){
+                paramsId.add(paramsStr[Integer.parseInt(paramsRow) - 1]);
             }else{
                 String value = paramsStr[1];
                 params.put(key, value);
             }
         }
-
     }
 
     public String getActionCode() {

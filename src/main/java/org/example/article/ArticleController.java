@@ -17,7 +17,6 @@ public class ArticleController {
         String subject = Container.getSc().nextLine().trim();
         System.out.print("내용 : ");
         String content = Container.getSc().nextLine().trim();
-        articleService.create(subject, content);
 
         int id = articleService.create(subject, content);
 
