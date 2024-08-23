@@ -1,9 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Request {
     private String actionCode;
@@ -25,6 +22,7 @@ public class Request {
             String key = paramsStr[0];
             if(paramsStr[1].startsWith("%&")){
                 paramsId.add(paramsStr[Integer.parseInt(paramsRow) - 1]);
+                params.put(key, Arrays.toString(paramsId.toArray()));
             }else{
                 String value = paramsStr[1];
                 params.put(key, value);
