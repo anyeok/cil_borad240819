@@ -14,15 +14,15 @@ public class ArticleController {
 
     public void write() {
         System.out.print("제목 : ");
+
         String subject = Container.getSc().nextLine().trim();
         System.out.print("내용 : ");
         String content = Container.getSc().nextLine().trim();
 
         int id = articleService.create(subject, content);
 
+        String sql = String.format("insert into atricle set id = %d, subject = %s, content = %s", id, subject, content);
         System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
-
-
     }
 
     public void list() {

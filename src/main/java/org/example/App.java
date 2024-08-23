@@ -48,4 +48,8 @@ public class App {
     }
 }
 
+// insert into article set subject='%s%,content='%s'
+//Container.getDBConnection().insert("");
 
+// String sql = String.format("DELETE FROM article where id = %d;", article.getId());
+// Global.getDBConnection().delete(sql);
