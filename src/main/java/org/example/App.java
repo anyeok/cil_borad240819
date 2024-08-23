@@ -18,10 +18,7 @@ public class App {
         DBConnection.DB_USER = "root";
         DBConnection.DB_PASSWORD = "";
 
-        DBConnection dbconnection = new DBConnection();
-        dbconnection.connect();
-        List<Map<String, Object>> rs = dbconnection.selectRows("select * from article");
-        System.out.println(rs);
+        Container.getDBConnection().connect();
 
         articleController = new ArticleController();
         systemController = new SystemController();
