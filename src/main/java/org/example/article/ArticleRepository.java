@@ -12,7 +12,7 @@ public class ArticleRepository {
     List<Article> articleList = new ArrayList<>();
 
     public int create(String subject, String content) {
-        String sql = String.format("insert into article set subject = `%s`, content = `%s`", subject, content);
+        String sql = String.format("insert into article set subject = '%s', content = '%s'", subject, content);
         int id = Container.getDBConnection().insert(sql);
         return id;
     }
@@ -24,14 +24,10 @@ public class ArticleRepository {
             Article article = new Article(row);
             articleList.add(article);
         }
-
-        System.out.println(rows);
-
         return articleList;
     }
 
     public Article _getFindById(int id) {
-        List<Article> articleList = new ArrayList<>();
         for (Article item : articleList) {
             if (item.getId() == id) {
                 return item;
@@ -41,7 +37,8 @@ public class ArticleRepository {
     }
 
     public void remove(Article article) {
-        articleList.remove(article);
+        String sql = String.format("DELETE FROM article where id = %d;", article.getId());
+        articleList.remove(sql);
     }
 
     public void modify(Article article, String modifySubject, String modifyContent) {

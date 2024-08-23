@@ -21,7 +21,6 @@ public class ArticleController {
 
         int id = articleService.create(subject, content);
 
-        String sql = String.format("insert into atricle set id = %d, subject = %s, content = %s", id, subject, content);
         System.out.printf("%d번 게시물이 등록되었습니다.\n", id);
     }
 
