@@ -1,10 +1,13 @@
 package org.example;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Request {
-    private String actionCode;
-    private Map<String, String> params = new HashMap<>();
+    private final String actionCode;
+    private final Map<String, String> params = new HashMap<>();
 
     public Request(String command) {
         String[] commandList = command.split("\\?", 2);
@@ -15,15 +18,15 @@ public class Request {
 
         String[] paramsList = commandList[1].split("&");
 
-        ArrayList<String> paramsId =  new ArrayList<>();
+        ArrayList<String> paramsId = new ArrayList<>();
 
         for (String paramsRow : paramsList) {
             String[] paramsStr = paramsRow.split("=", 2);
             String key = paramsStr[0];
-            if(paramsStr[1].startsWith("%&")){
+            if (paramsStr[1].startsWith("%&")) {
                 paramsId.add(paramsStr[Integer.parseInt(paramsRow) - 1]);
                 params.put(key, Arrays.toString(paramsId.toArray()));
-            }else{
+            } else {
                 String value = paramsStr[1];
                 params.put(key, value);
             }

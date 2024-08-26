@@ -9,7 +9,7 @@ import java.util.Map;
 public class ArticleRepository {
 
     public int create(String subject, String content) {
-        String sql = String.format("insert into article set subject = '%s', content = '%s'", subject, content);
+        String sql = String.format("INSERT INTO article SET subject = '%s', content = '%s'", subject, content);
         int id = Container.getDBConnection().insert(sql);
         return id;
     }
@@ -41,6 +41,11 @@ public class ArticleRepository {
 
     public void modify(Article article, String modifySubject, String modifyContent) {
         String sql = String.format("UPDATE article SET subject = '%s', content = '%s' WHERE id = %d", modifySubject, modifyContent, article.getId());
+        Container.getDBConnection().update(sql);
+    }
+
+    public void reset() {
+        String sql = String.format("TRUNCATE TABLE article");
         Container.getDBConnection().update(sql);
     }
 }

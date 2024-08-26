@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.article.ArticleController;
 import org.example.db.DBConnection;
+import org.example.member.MemberController;
 import org.example.system.SystemController;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Map;
 public class App {
     ArticleController articleController;
     SystemController systemController;
+    MemberController memberController;
 
 
     App() {
@@ -43,6 +45,12 @@ public class App {
                 articleController.delete(request);
             } else if (request.getActionCode().startsWith("수정")) {
                 articleController.modify(request);
+            } else if (request.getActionCode().startsWith("리셋")) {
+                articleController.reset();
+            } else if (request.getActionCode().startsWith("회원가입")) {
+                memberController.singup();
+            } else if (request.getActionCode().startsWith("회원정보")) {
+                memberController.list();
             }
         }
     }

@@ -28,5 +28,7 @@ public class ArticleService {
     public void modify(Article article, String modifySubject, String modifyContent) {
         articleRepository.modify(article, modifySubject, modifyContent);
     }
+    public void reset(){
+        articleRepository.reset();
+    }
 }
-

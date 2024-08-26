@@ -76,6 +76,11 @@ public class ArticleController {
         }
     }
 
+    public void reset(){
+        System.out.println("리셋 되었습니다.");
+        articleService.reset();
+    }
+
     private int _getIntParam(String id) {
         int defaultValue = -1;
         try {
