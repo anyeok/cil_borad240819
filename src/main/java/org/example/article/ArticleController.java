@@ -14,7 +14,6 @@ public class ArticleController {
 
     public void write() {
         System.out.print("제목 : ");
-
         String subject = Container.getSc().nextLine().trim();
         System.out.print("내용 : ");
         String content = Container.getSc().nextLine().trim();
@@ -36,12 +35,13 @@ public class ArticleController {
 
     public void delete(Request request) {
         int id = _getIntParam(request.getParams("id"));
-        Article article = this.articleService._getFindById(id);
 
         if (id == -1) {
             System.out.println("잘못된 입력입니다. ex)삭제?id=1&id=2");
             return;
         }
+        Article article = this.articleService.findById(id);
+
         if (article == null) {
             System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
         } else {
@@ -57,12 +57,11 @@ public class ArticleController {
             System.out.println("잘못된 입력입니다. ex)수정?id=1&id=2");
             return;
         }
-        Article article = this.articleService._getFindById(id);
+        Article article = this.articleService.findById(id);
 
         if (article == null) {
             System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
         } else {
-
             System.out.printf("제목(기존) : %s\n", article.getSubject());
             System.out.print("제목 : ");
             String modifySubject = Container.getSc().nextLine();
