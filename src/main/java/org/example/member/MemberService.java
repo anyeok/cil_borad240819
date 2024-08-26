@@ -11,8 +11,8 @@ public class MemberService {
         MemberRepository = new MemberRepository();
     }
 
-    public int create(String memberid, String memberpw) {
-        return MemberRepository.create(memberid, memberpw);
+    public int create(String userid, String password) {
+        return MemberRepository.create(userid, password);
     }
 
     public List<Member> findAll() {
@@ -23,9 +23,9 @@ public class MemberService {
         return MemberRepository.findById(id);
     }
 
-//    public void remove(Member member) {
-//        MemberRepository.remove(member);
-//    }
+    public void remove(Member member) {
+        MemberRepository.remove(member);
+    }
 
 //    public void modify(Member member, String modifySubject, String modifyContent) {
 //        MemberRepository.modify(article, modifySubject, modifyContent);

@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 public class MemberRepository {
-    public int create(String memberid, String memberpw) {
-        String sql = String.format("INSERT INTO `member` SET memberid = '%s', memberpw = '%s'", memberid, memberpw);
+    public int create(String userid, String password) {
+        String sql = String.format("INSERT INTO `member` SET memberid = '%s', memberpw = '%s'", userid, password);
         int id = Container.getDBConnection().insert(sql);
         return id;
     }

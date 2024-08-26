@@ -4,32 +4,32 @@ import java.util.Map;
 
 public class Member {
     private int id;
-    private String memberid;
-    private String memberpw;
+    private String userid;
+    private String password;
 
     Member (Map<String, Object> row){
         this.id = (int)row.get("id");
-        this.memberid = (String) row.get("memberid");
-        this.memberpw = (String) row.get("memberpw");
+        this.userid = (String) row.get("userid");
+        this.password = (String) row.get("password");
     }
 
     public int getId() {
         return this.id;
     }
 
-    public String getMemberid() {
-        return this.memberid;
+    public String getUserid() {
+        return this.userid;
     }
 
-    public String getMemberpw() {
-        return this.memberpw;
+    public String getPassword() {
+        return this.password;
     }
 
-    public void setMemberid(String memberid) {
-        this.memberid = memberid;
+    public void setUserid(String memberid) {
+        this.userid = memberid;
     }
 
-    public void setMemberpw(String memberpw) {
-        this.memberpw = memberpw;
+    public void setPemberpw(String memberpw) {
+        this.password = memberpw;
     }
 }
