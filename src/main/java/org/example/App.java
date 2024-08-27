@@ -49,11 +49,12 @@ public class App {
                 articleController.reset();
             } else if (request.getActionCode().startsWith("회원가입")) {
                 memberController.singup();
-//            } else if (request.getActionCode().startsWith("로그인")) {
-//                memberController.list();
-//            } else if (request.getActionCode().startsWith("로그아웃")) {
-//                memberController.delete(request);
+            } else if (request.getActionCode().startsWith("로그인")) {
+                memberController.login();
             }
+//            } else if (request.getActionCode().startsWith("로그아웃")) {
+//                memberController.logout(request);
+//           }
         }
     }
 }

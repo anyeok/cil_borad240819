@@ -1,7 +1,6 @@
 package org.example.member;
 
 import org.example.Container;
-import org.example.article.Article;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +13,13 @@ public class MemberRepository {
         return id;
     }
 
-    public List<Member> findAll() {
-        List<Member> memberList = new ArrayList<>();
-        List<Map<String, Object>> rows = Container.getDBConnection().selectRows("select * from member");
-        for (Map<String, Object> row : rows) {
-            Member member = new Member(row);
-            memberList.add(member);
-        }
-        return memberList;
-    }
+//    public List<Member> findAll() {
+//        List<Member> memberList = new ArrayList<>();
+//        List<Map<String, Object>> rows = Container.getDBConnection().selectRows("select * from member");
+//        for (Map<String, Object> row : rows) {
+//            Member member = new Member();
+//            memberList.add(member);
+//        }
+//        return memberList;
+//    }
 }

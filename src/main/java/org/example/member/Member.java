@@ -13,6 +13,7 @@ public class Member {
         this.password = (String) row.get("password");
     }
 
+
     public int getId() {
         return this.id;
     }

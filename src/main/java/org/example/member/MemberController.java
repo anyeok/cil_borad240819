@@ -1,13 +1,9 @@
 package org.example.member;
 
 import org.example.Container;
-import org.example.Request;
-import org.example.article.Article;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MemberController {
+    Member member;
     MemberService memberService;
     public MemberController () {
         memberService = new MemberService();
@@ -23,18 +19,29 @@ public class MemberController {
         System.out.printf("%d번 회원이 등록되었습니다.\n", id);
     }
     public void login(){
-        MemberRepository memberRepository = new MemberRepository();
         System.out.print("ID : ");
         String userid = Container.getSc().nextLine().trim();
         System.out.print("PW : ");
         String password = Container.getSc().nextLine().trim();
 
-        for(userid : memberRepository.findAll()){
-
+        try {
+            if (search(member, userid, password)) {
+                System.out.print("로그인에 성공하였습니다.");
+            } else if (false) {
+                System.out.print("로그인에 실패하였습니다.");
+            }
+        }catch (Exception e){
+            System.out.print("아이디가 없거나, 비밀번호와 일치하지 않습니다.");
         }
-
     }
-    public void serch(Member member){
-
+    public void logout(){
+        System.out.print("로그아웃 되었습니다.");
+    }
+    public boolean search(Member member, String id, String pw){
+        if (id.equals(member.getUserid()) && pw.equals(member.getPassword())){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
