@@ -2,7 +2,6 @@ package org.example.member;
 
 import org.example.Container;
 import org.example.Request;
-import org.example.article.Article;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +15,9 @@ public class MemberController {
          System.out.print("회원가입 ID : ");
          String userid = Container.getSc().nextLine().trim();
          System.out.print("비밀번호 PW : ");
-         String memberpw = Container.getSc().nextLine().trim();
+         String password = Container.getSc().nextLine().trim();
 
-         int id = memberService.create(userid, memberpw);
+         int id = memberService.create(userid, password);
 
          System.out.printf("%d번 회원이 등록되었습니다.\n", id);
     }
@@ -46,6 +45,15 @@ public class MemberController {
         } else {
             memberService.remove(member);
             System.out.printf("%d번 게시물이 삭제되었습니다.\n", id);
+        }
+    }
+
+    private int _getIntParam(String id) {
+        int defaultValue = -1;
+        try {
+            return Integer.parseInt(id);
+        } catch (NumberFormatException e) {
+            return defaultValue;
         }
     }
 }

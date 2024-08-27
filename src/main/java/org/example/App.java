@@ -51,6 +51,8 @@ public class App {
                 memberController.singup();
             } else if (request.getActionCode().startsWith("회원정보")) {
                 memberController.list();
+            } else if (request.getActionCode().startsWith("회원삭제")) {
+                memberController.delete(request);
             }
         }
     }

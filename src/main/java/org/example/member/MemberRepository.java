@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class MemberRepository {
     public int create(String userid, String password) {
-        String sql = String.format("INSERT INTO `member` SET memberid = '%s', memberpw = '%s'", userid, password);
+        String sql = String.format("INSERT INTO `member` SET userId = '%s', `password` = '%s'", userid, password);
         int id = Container.getDBConnection().insert(sql);
         return id;
     }
@@ -31,5 +31,10 @@ public class MemberRepository {
             }
         }
         return null;
+    }
+
+    public void remove(Member member) {
+        String sql = String.format("DELETE FROM member where id = %d;", member.getId());
+        Container.getDBConnection().delete(sql);
     }
 }

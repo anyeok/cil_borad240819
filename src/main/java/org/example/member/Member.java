@@ -25,11 +25,11 @@ public class Member {
         return this.password;
     }
 
-    public void setUserid(String memberid) {
-        this.userid = memberid;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
-    public void setPemberpw(String memberpw) {
-        this.password = memberpw;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

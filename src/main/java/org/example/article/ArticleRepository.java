@@ -1,15 +1,17 @@
 package org.example.article;
 
 import org.example.Container;
+import org.example.member.Member;
+import org.example.member.MemberService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class ArticleRepository {
-
     public int create(String subject, String content) {
-        String sql = String.format("INSERT INTO article SET subject = '%s', content = '%s'", subject, content);
+        List<Member> memberService = new MemberService();
+        String sql = String.format("INSERT INTO article SET subject = '%s', content = '%s', memberId = '%s', regDate = now()", subject, content, member.getId());
         int id = Container.getDBConnection().insert(sql);
         return id;
     }
@@ -40,7 +42,7 @@ public class ArticleRepository {
     }
 
     public void modify(Article article, String modifySubject, String modifyContent) {
-        String sql = String.format("UPDATE article SET subject = '%s', content = '%s' WHERE id = %d", modifySubject, modifyContent, article.getId());
+        String sql = String.format("UPDATE article SET subject = '%s', content = '%s', WHERE id = %d", modifySubject, modifyContent, article.getId());
         Container.getDBConnection().update(sql);
     }
 
