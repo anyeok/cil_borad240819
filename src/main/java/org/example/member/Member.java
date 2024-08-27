@@ -7,7 +7,7 @@ public class Member {
     private String userid;
     private String password;
 
-    Member (Map<String, Object> row){
+    public Member (Map<String, Object> row){
         this.id = (int)row.get("id");
         this.userid = (String) row.get("userid");
         this.password = (String) row.get("password");

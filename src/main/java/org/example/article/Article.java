@@ -7,6 +7,7 @@ public class Article {
     private String subject;
     private String content;
 
+
     Article(Map<String, Object> row){
         this.id = (int)row.get("id");
         this.subject = (String) row.get("subject");
