@@ -12,6 +12,17 @@ public class MemberRepository {
         int id = Container.getDBConnection().insert(sql);
         return id;
     }
+    public boolean search(String id, String pw){
+        String sql = String.format("SELECT * FROM `member` WHERE userId = '%s' AND `password` = '%s'", id, pw);
+        if(sql) {
+
+        }
+//        if (id.equals(member.getUserid()) && pw.equals(member.getPassword())){
+//            return true;
+//        }else {
+//            return false;
+//        }
+    }
 
 //    public List<Member> findAll() {
 //        List<Member> memberList = new ArrayList<>();

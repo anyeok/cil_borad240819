@@ -14,4 +14,7 @@ public class MemberService {
     public int create(String userid, String password) {
         return MemberRepository.create(userid, password);
     }
+    public void search(String userid, String password){
+
+    }
 }

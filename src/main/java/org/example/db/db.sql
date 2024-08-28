@@ -30,7 +30,7 @@ CREATE TABLE `member` (
 INSERT INTO `member`
     SET id = 3,
     userId = 3,
-    `password` = asd,
+    `password` = 'asd',
     regDate = now();
 
 SELECT * FROM `member`;
